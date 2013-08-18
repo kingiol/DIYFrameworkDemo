@@ -1,0 +1,17 @@
+
+安装:
+1.https://github.com/kstenerud/iOS-Universal-Framework
+2.安装Real Framework
+
+
+制作:
+1.制作的初步流程就是这个项目的制作方式
+2.XCode 的 Scheme 设置为 iPhone Simulator 或者 iPad Simulator,不要设置为IOS Device
+3.编译之后获取到framework的目录，我们选择 *embeddedframework 文件夹作为framework (因为这个不但包含了代码内容，而且还包括了资源文件)
+
+
+
+注意点：
+1。在制作framework或者lib的时候，如果使用了category ，则使用该FMWK的程序运行时会crash，此时需要在添加的工程中 other linker flags 添加两个参数:(-ObjC和-all_load)
+
+2。编译出Framework是，需要把 Build Settings 中的 Generate Debug Symbols ＝ NO，否则会出现很多 warning:警告
